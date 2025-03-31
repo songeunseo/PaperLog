@@ -1,0 +1,44 @@
+---
+title: "Generative Adversarial Networks"
+authors: "Ian J. Goodfellow, Jean Pouget-Abadie, Mehdi Mirza, Bing Xu, David Warde-Farley, Sherjil Ozair, Aaron Courville, Yoshua Bengio"
+date: "2023-08-01"
+lastmod: "2023-08-10"
+publishedDate: "2014-06-10"
+paperLink: "https://arxiv.org/abs/1406.2661"
+categories: ["vision", "generative-model"]
+tags: ["gan", "generative-model", "deep-learning"]
+summary: "GAN은 생성자와 판별자 네트워크의 적대적 훈련을 통해 데이터 분포를 학습하는 혁신적인 생성 모델입니다."
+---
+
+# 생성적 적대 신경망 (Generative Adversarial Networks)
+
+GAN은 2014년 Ian Goodfellow와 동료들이 제안한 생성 모델로, 두 개의 신경망이 서로 경쟁하며 데이터 분포를 학습합니다.
+
+## 핵심 아이디어
+
+- 생성자(Generator)와 판별자(Discriminator) 두 네트워크의 적대적 훈련
+- 생성자: 랜덤 노이즈에서 가짜 샘플 생성
+- 판별자: 실제 데이터와 가짜 데이터를 구분
+- 제로섬 게임을 통한 상호 발전
+
+## 수학적 표현
+
+GAN의 목적 함수:
+
+min_G max_D V(D, G) = E_x~p_data(x)[log D(x)] + E_z~p_z(z)[log(1 - D(G(z)))]
+
+## 주요 성과
+
+- 고품질 이미지 생성이 가능한 새로운 패러다임 제시
+- 사전 확률 분포 가정이나 마르코프 체인 없이 생성 모델 훈련 가능
+- 다양한 응용 분야 개척 (이미지 생성, 음성 합성, 텍스트 생성 등)
+
+## 한계점
+
+- 훈련 불안정성 (모드 붕괴, 균형 찾기의 어려움)
+- 평가 지표 정의의 어려움
+- 학습 과정에서 판별자가 너무 강해지면 생성자 학습 실패
+
+## 영향력
+
+GAN은 컴퓨터 비전과 생성 모델링 분야에 혁명적인 변화를 가져왔으며, 수많은 변형 모델(DCGAN, WGAN, CycleGAN 등)과 응용 프로그램 개발을 촉진했습니다. 

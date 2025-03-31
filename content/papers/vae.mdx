@@ -1,0 +1,52 @@
+---
+title: "Auto-Encoding Variational Bayes"
+authors: "Diederik P. Kingma, Max Welling"
+date: "2023-07-20"
+lastmod: "2023-07-30"
+publishedDate: "2013-12-20"
+paperLink: "https://arxiv.org/abs/1312.6114"
+categories: ["vision", "generative-model"]
+tags: ["vae", "generative-model", "deep-learning", "variational-inference"]
+summary: "VAE는 변분 추론과 신경망을 결합하여 잠재 변수 모델을 효율적으로 학습하는 생성 모델입니다."
+---
+
+# 변분 오토인코더 (Variational Autoencoder)
+
+VAE는 2013년 Diederik Kingma와 Max Welling이 제안한 잠재 변수 생성 모델로, 베이지안 추론과 신경망을 결합하였습니다.
+
+## 핵심 아이디어
+
+- 인코더와 디코더 네트워크를 사용한 변분 추론 구현
+- 잠재 공간의 확률적 매핑을 통한 생성 모델링
+- 재매개화 트릭을 통한 역전파 가능한 샘플링
+- ELBO(Evidence Lower Bound) 최대화를 통한 학습
+
+## 목적 함수
+
+VAE는 다음 ELBO를 최대화합니다:
+L(θ, φ; x) = E_q_φ(z|x)[log p_θ(x|z)] - D_KL(q_φ(z|x) || p(z))
+
+- 첫 번째 항: 재구성 정확도 (인코더-디코더 성능)
+- 두 번째 항: 사전 확률과 근사 사후 확률 간의 KL 발산
+
+## 구조적 특징
+
+- 인코더: 입력 x를 잠재 변수 z의 확률 분포(보통 가우시안)로 매핑
+- 디코더: 잠재 변수 z로부터 원본 데이터 x를 재구성
+- 잠재 공간: 연속적이고 의미론적으로 조직화된 표현을 학습
+
+## 주요 성과
+
+- 복잡한 확률 분포의 효율적인 근사가 가능한 프레임워크 제공
+- 고차원 데이터의 저차원 잠재 표현 학습
+- 샘플링을 통한 새로운 데이터 생성 가능
+
+## 한계점
+
+- GAN에 비해 생성된 샘플이 덜 선명한 경향
+- 강한 사전 가정(가우시안 등)으로 인한 표현력 제한
+- 복잡한 데이터에서 재구성 오류와 KL 발산 간의 균형 조절 어려움
+
+## 영향력
+
+VAE는 생성 모델링, 표현 학습, 이미지 생성 분야에 중요한 발전을 가져왔으며, 다양한 변형과 확장(β-VAE, VQ-VAE, 조건부 VAE 등)이 연구되고 있습니다. 

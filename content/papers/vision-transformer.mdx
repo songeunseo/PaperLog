@@ -1,0 +1,44 @@
+---
+title: "An Image is Worth 16x16 Words: Transformers for Image Recognition at Scale"
+authors: "Alexey Dosovitskiy, Lucas Beyer, Alexander Kolesnikov, Dirk Weissenborn, Xiaohua Zhai, Thomas Unterthiner, Mostafa Dehghani, Matthias Minderer, Georg Heigold, Sylvain Gelly, Jakob Uszkoreit, Neil Houlsby"
+date: "2023-07-01"
+lastmod: "2023-07-15"
+publishedDate: "2020-10-22"
+paperLink: "https://arxiv.org/abs/2010.11929"
+categories: ["vision"]
+tags: ["transformer", "vision-transformer", "computer-vision", "vit"]
+summary: "Vision Transformer(ViT)는 NLP에서 성공한 트랜스포머 아키텍처를 이미지 분류에 적용한 혁신적인 모델입니다."
+---
+
+# Vision Transformer: 이미지 인식을 위한 트랜스포머 아키텍처
+
+Vision Transformer(ViT)는 2020년 Google Research의 연구팀이 발표한 논문으로, 자연어 처리(NLP)에서 큰 성공을 거둔 트랜스포머(Transformer) 아키텍처를 이미지 분류 태스크에 적용한 혁신적인 모델입니다.
+
+## 핵심 아이디어
+
+- 이미지를 16x16 픽셀 패치로 분할하여 시퀀스로 변환
+- 패치에 위치 인코딩 추가하여 트랜스포머 입력으로 사용
+- 표준 트랜스포머 인코더 아키텍처 적용
+- 분류를 위한 특별 [CLS] 토큰 사용
+
+## 모델 구조
+
+- **ViT-Base**: 12개 트랜스포머 블록, 768차원 임베딩, 12 어텐션 헤드
+- **ViT-Large**: 24개 트랜스포머 블록, 1024차원 임베딩, 16 어텐션 헤드
+- **ViT-Huge**: 32개 트랜스포머 블록, 1280차원 임베딩, 16 어텐션 헤드
+
+## 주요 성과
+
+- ImageNet: 88.55% top-1 정확도 (ViT-H/14, JFT-300M 사전 학습)
+- 대규모 데이터셋에서 사전 학습 시 ResNet 같은 CNN 모델보다 우수한 성능
+
+## 영향 및 의의
+
+- CNN 위주였던 컴퓨터 비전에 새로운 대안 제시
+- NLP와 비전 분야의 아키텍처 통합 가능성 제시
+- 다양한 후속 연구(Swin Transformer, DeiT 등) 촉진
+
+## 한계점
+
+- 데이터 효율성 낮음 (소규모 데이터셋에서는 CNN이 더 우수)
+- 대규모 데이터셋에서의 사전 학습 필요 

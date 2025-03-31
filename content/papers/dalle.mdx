@@ -1,0 +1,47 @@
+---
+title: "Zero-Shot Text-to-Image Generation"
+authors: "Aditya Ramesh, Mikhail Pavlov, Gabriel Goh, Scott Gray, Chelsea Voss, Alec Radford, Mark Chen, Ilya Sutskever"
+date: "2023-08-15"
+lastmod: "2023-08-25"
+publishedDate: "2021-02-24"
+paperLink: "https://arxiv.org/abs/2102.12092"
+categories: ["multimodal", "generative-model"]
+tags: ["dall-e", "text-to-image", "generative-model", "multimodal"]
+summary: "DALL-E는 텍스트 프롬프트로부터 이미지를 생성할 수 있는 강력한 멀티모달 모델입니다."
+---
+
+# DALL-E: 텍스트에서 이미지로의 제로샷 생성
+
+DALL-E는 2021년 OpenAI가 공개한 텍스트-이미지 생성 모델로, 자연어 설명으로부터 다양한 이미지를 생성할 수 있습니다.
+
+## 핵심 아이디어
+
+- GPT-3의 아키텍처를 기반으로 한 트랜스포머 모델
+- 텍스트와 이미지를 동일한 이산적 토큰 공간으로 인코딩
+- 자기회귀(autoregressive) 방식의 이미지 생성
+- 1,200만 개의 이미지-텍스트 쌍으로 학습
+
+## 기술적 구성
+
+- VQ-VAE를 사용하여 이미지를 1,024개의 토큰으로 압축
+- 텍스트와 이미지 토큰을 연결하여 입력으로 사용
+- 12억 개의 파라미터를 가진 트랜스포머 모델 사용
+- 다양한 시각적 개념의 조합 및 변환 학습
+
+## 주요 기능
+
+- 자연어 지시에 따른 이미지 생성
+- 의도한 개체의 속성, 활동, 시점 지정 가능
+- 다양한 스타일로 렌더링 가능
+- 존재하지 않는 개체의 조합과 변형 가능
+
+## 한계점
+
+- 복잡한 구성의 정확한 표현에 어려움
+- 여러 객체 간의 공간 관계 이해 제한적
+- 추상적인 개념의 시각화에 한계
+- 생성된 이미지에 때로 시각적 아티팩트 발생
+
+## 영향력
+
+DALL-E는 텍스트-이미지 생성 분야에 혁신을 가져왔으며, 창의적인 콘텐츠 제작, 디자인, 예술 분야에 새로운 가능성을 제시했습니다. 이후 DALL-E 2, Midjourney, Stable Diffusion 등 더 발전된 모델 개발의 기반이 되었습니다. 

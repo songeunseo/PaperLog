@@ -92,7 +92,8 @@ export default function CategoryPage({ params }: { params: { slug: string } }) {
                         <div className="flex-shrink-0 w-12 h-12 flex items-center justify-center rounded-full bg-green-100 dark:bg-green-900/40 text-green-600 dark:text-green-300 mr-4">
                           {review.categories.includes('nlp') ? '🔤' : 
                            review.categories.includes('vision') ? '👁️' : 
-                           review.categories.includes('transformer') ? '⚡' : '📊'}
+                           review.categories.includes('transformer') ? '⚡' : 
+                           review.categories.includes('multimodal') ? '🔀' : '📊'}
                         </div>
                         <h2 className="text-2xl font-bold text-gray-800 dark:text-gray-100">
                           <Link href={`/reviews/${review.slug}`} className="hover:text-green-600 dark:hover:text-green-400">
@@ -102,10 +103,6 @@ export default function CategoryPage({ params }: { params: { slug: string } }) {
                       </div>
                       <p className="text-base text-gray-600 dark:text-gray-400 mb-4 ml-16">
                         {review.authors}
-                      </p>
-                      <p className="text-lg leading-relaxed text-gray-800 dark:text-gray-100 mb-6 ml-16">
-                        {review.summary.substring(0, 200)}
-                        {review.summary.length > 200 ? '...' : ''}
                       </p>
                       
                       <div className="flex flex-wrap gap-3 mt-6 ml-16">
