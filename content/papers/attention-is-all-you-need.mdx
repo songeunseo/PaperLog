@@ -1,0 +1,76 @@
+---
+title: "Attention Is All You Need"
+authors: "Ashish Vaswani, Noam Shazeer, Niki Parmar, Jakob Uszkoreit, Llion Jones, Aidan N. Gomez, Łukasz Kaiser, Illia Polosukhin"
+date: "2023-06-15"
+lastmod: "2023-06-20"
+publishedDate: "2017-06-12"
+paperLink: "https://arxiv.org/abs/1706.03762"
+categories: ["nlp", "transformer"]
+tags: ["attention", "transformer", "deep-learning", "sequence-model"]
+summary: "이 논문은 RNN이나 CNN을 사용하지 않고 어텐션 메커니즘만으로 시퀀스 모델링 문제를 해결하는 Transformer 아키텍처를 제안합니다. 병렬 처리가 가능하고 긴 거리 의존성을 더 잘 포착하는 이 모델은 번역 작업에서 최고 성능을 달성했으며, 현대 자연어 처리의 기반이 되었습니다."
+---
+
+# Attention Is All You Need
+
+## 개요
+
+2017년 Google Brain 팀에서 발표한 "Attention Is All You Need" 논문은 자연어 처리 분야에 혁명적인 변화를 가져온 Transformer 아키텍처를 소개했습니다. 이 모델은 기존의 순환 신경망(RNN)이나 합성곱 신경망(CNN)을 사용하지 않고, 오직 어텐션 메커니즘만을 기반으로 하여 뛰어난 성능을 달성했습니다.
+
+## 핵심 아이디어
+
+Transformer의 핵심 아이디어는 다음과 같습니다:
+
+1. **Self-Attention 메커니즘**: 입력 시퀀스의 각 위치가 다른 모든 위치와 어떻게 관련되는지 계산합니다. 이를 통해 시퀀스 내의 장거리 의존성을 효과적으로 포착할 수 있습니다.
+
+2. **멀티헤드 어텐션(Multi-Head Attention)**: 여러 개의 어텐션 메커니즘을 병렬로 실행하여 다양한 관점에서 정보를 추출합니다.
+
+3. **위치 인코딩(Positional Encoding)**: 순환 구조 없이도 시퀀스의 순서 정보를 모델에 제공합니다.
+
+4. **인코더-디코더 구조(Encoder-Decoder Architecture)**: 인코더는 입력 시퀀스를 표현으로 변환하고, 디코더는 이 표현을 출력 시퀀스로 변환합니다.
+
+## 모델 구조
+
+Transformer 모델은 크게 인코더와 디코더로 구성됩니다:
+
+### 인코더
+- N=6개의 동일한 레이어로 구성
+- 각 레이어는 두 개의 서브레이어를 포함:
+  1. 멀티헤드 셀프 어텐션(Multi-Head Self-Attention)
+  2. 위치별 완전 연결 피드포워드 네트워크(Position-wise Fully Connected Feed-Forward Network)
+- 각 서브레이어에는 잔차 연결(Residual Connection)과 레이어 정규화(Layer Normalization)가 적용됨
+
+### 디코더
+- 인코더와 마찬가지로 N=6개의 동일한 레이어로 구성
+- 각 레이어는 세 개의 서브레이어를 포함:
+  1. 마스크드 멀티헤드 셀프 어텐션(Masked Multi-Head Self-Attention)
+  2. 인코더-디코더 어텐션(Encoder-Decoder Attention)
+  3. 위치별 완전 연결 피드포워드 네트워크(Position-wise Fully Connected Feed-Forward Network)
+- 마찬가지로 잔차 연결과 레이어 정규화가 적용됨
+
+## 주요 혁신점
+
+1. **병렬 처리 가능**: RNN과 달리 시퀀스를 순차적으로 처리할 필요가 없어, 훈련 시간이 크게 단축됩니다.
+
+2. **장거리 의존성 학습**: 어텐션 메커니즘을 통해 시퀀스의 모든 위치 간 관계를 직접 모델링할 수 있어, 긴 시퀀스에서도 정보 손실이 적습니다.
+
+3. **해석 가능성**: 어텐션 가중치를 시각화하여 모델이 어떤 입력 토큰에 집중하는지 확인할 수 있습니다.
+
+## 성능
+
+논문에서 Transformer는 WMT 2014 영어-독일어, 영어-프랑스어 번역 태스크에서 당시 최고 성능을 달성했습니다:
+- 영어-독일어: BLEU 점수 28.4
+- 영어-프랑스어: BLEU 점수 41.8
+
+또한 훈련 비용 측면에서도 기존 모델보다 효율적이었습니다.
+
+## 영향 및 의의
+
+Transformer 아키텍처는 자연어 처리 분야에 엄청난 영향을 미쳤습니다:
+
+1. **BERT, GPT, T5 등의 기반**: 현대 대규모 언어 모델의 기초가 되었습니다.
+2. **다양한 응용 분야**: 기계 번역, 텍스트 요약, 질의응답, 이미지 캡셔닝 등 다양한 분야에 적용되었습니다.
+3. **아키텍처 패러다임 전환**: RNN에서 Transformer로의 패러다임 전환을 이끌었습니다.
+
+## 결론
+
+"Attention Is All You Need" 논문은 자연어 처리의 역사를 "Transformer 이전"과 "Transformer 이후"로 나눌 만큼 혁신적인 연구였습니다. 단순하면서도 강력한 이 아키텍처는 현대 AI 발전의 핵심 요소가 되었으며, 이후의 많은 연구들이 이를 기반으로 하고 있습니다. 
